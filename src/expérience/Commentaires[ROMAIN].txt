@@ -1,0 +1,51 @@
+PENSEES BRUTES <3 
+
+###Décision de la réponse ###
+	~~~
+	on cherche la manière dont on doit traduire la réponse
+renvoyer par le cerveau lors d'une stimulation.
+En effet, la réponse ne sera jamais brute ne sera jamais la
+même que la réponse théorique.
+	~~~
+	On pense alors à deux façon de traiter ce problème :
+ - par l'utilisation d'un seuil, à partir duquel la réponse renvoyée 
+par un neurone de sortie serait traduite VRAIE si elle lui est
+supérieure ou égale et FAUSSE dans le cas contraire.
+ - par la recherche du maximum de la liste des réponses des neurones
+de sortie.
+	~~~
+	On remarque que l'apprentissage, du point de vue d'un des 
+traitements précédents est beaucoup plus rapide par l'utilisation de
+la deuxième méthode (recherche du maximum), néanmoins un zone de
+"stagnation" arrive vers 90%, alors la première méthode rattrape
+très rapidement la seconde, et les deux finissent par converger vers
+leur maximum à peu près au même moment.
+
+###Modèle d'apprentissage###
+Si l'on génère un cerveau "C", qu'on l'entraine sur un modèle "M"
+on remarque alors que certaint éléments de M sont "incompatiblent"
+avec l'apprentissage. Le cerveau ne peut pas les apprendre.
+En effet la méthode d'apprentissage permet de maximiser le nombre
+d'élements appris sur un modèle fixé. 
+Mais si l'on essaie de selectionné les éléments, non appris une fois
+la maximum d'apprentissage atteind, le cerveau fera un chute de
+performance.
+Le modèle forme un ensemble d'élements situés dans un espace de dimension
+égale à la taille d'un exemple d'apprentissage. Le cerveau engendre des
+une partition de cet espace en un nombre de classes égale à son nombre de
+neurones de sortie. L'algorithme d'apprentissage positionne ces surfaces
+de façon à approximer la classification théorique souhaité. Mais certains 
+exemples sont incompatibles avec cette classifications étant du point de vue
+d'une égalité numérique trop éloigné de la majorité des éléments de la classe
+à laquelle il devrait appartenir. 
+
+Le cerveau doit pouvoir renvoyer "JE NE SAIS PAS"
+La réponse d'un neurone appartient à  [0,1], on pense à un approche probabiliste,
+la plus forte probabilité indiquant quelle est la réponse du cerveau.
+On remarque que la somme des réponses des neurones de sortie approche très fortement 1.
+(definition d'un univers, la somme des probas fait 1)
+On remarque également que la somme des réponses des neurones de sortie dans le cas d'un
+stimulation par un élément incompatible est inférieure à O,1. traduction d'un "n'importe quoi".
+
+On va donc essayer d'isoler ces éléments incompatibles, et refaire un second modèle à partir
+de ces éléments. Générer un second cerveau et voir si un apprentissage parfait est réalisable.
